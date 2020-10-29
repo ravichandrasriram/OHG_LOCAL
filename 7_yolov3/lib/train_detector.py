@@ -287,7 +287,7 @@ class Detector():
             self.system_dict["params"]["adam"] = False;
         self.system_dict["fixed_params"]["hyp"]["lr0"] = lr;
         self.system_dict["params"]["rect"] = False;
-        self.system_dict["params"]["resume"] = False;
+        self.system_dict["params"]["resume"] = True;
         self.system_dict["params"]["nosave"] = False;
         self.system_dict["params"]["notest"] = False;
         self.system_dict["params"]["evolve"] = evolve;
@@ -313,7 +313,7 @@ class Detector():
         if(not os.path.isdir("weights")):
             os.mkdir("weights");
 
-
+        last = self.system_dict["fixed_params"]["last"]
         #Device Setup
         self.system_dict["params"]["weights"] = last if self.system_dict["params"]["resume"] else self.system_dict["params"]["weights"]
         self.system_dict["local"]["device"] = torch_utils.select_device(self.system_dict["params"]["device"], 
