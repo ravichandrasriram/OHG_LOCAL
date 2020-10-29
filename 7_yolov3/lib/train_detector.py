@@ -264,7 +264,7 @@ class Detector():
 
 
     def set_hyperparams(self, optimizer="sgd", lr=0.00579, multi_scale=False, evolve=False, num_generations=2, 
-                        mixed_precision=True, gpu_devices="0"):
+                        mixed_precision=True, gpu_devices="0", resume=False):
         '''
         User function: Set hyper parameters
             Available optimizers
@@ -287,7 +287,7 @@ class Detector():
             self.system_dict["params"]["adam"] = False;
         self.system_dict["fixed_params"]["hyp"]["lr0"] = lr;
         self.system_dict["params"]["rect"] = False;
-        self.system_dict["params"]["resume"] = True;
+        self.system_dict["params"]["resume"] = resume;
         self.system_dict["params"]["nosave"] = False;
         self.system_dict["params"]["notest"] = False;
         self.system_dict["params"]["evolve"] = evolve;
