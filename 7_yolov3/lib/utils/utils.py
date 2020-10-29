@@ -1036,4 +1036,4 @@ def plot_results(start=0, stop=0, bucket='', id=()):  # from utils.utils import 
 
     fig.tight_layout()
     ax[1].legend()
-    fig.savefig('results.png', dpi=200)
+    fig.savefig('/content/drive/My Drive/Datasets/Results/DLA_OHG/results.png', dpi=200)
