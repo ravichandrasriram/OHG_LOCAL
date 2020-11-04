@@ -74,10 +74,10 @@ class Detector():
         Returns:
             None
         '''
-        self.system_dict["fixed_params"]["wdir"] = '/content/drive/My Drive/Datasets/Results/DLA_OHG/weights' + os.sep  
+        self.system_dict["fixed_params"]["wdir"] = '/content/drive/My Drive/Datasets/Results/OHG_RES/weights' + os.sep  
         self.system_dict["fixed_params"]["last"] = self.system_dict["fixed_params"]["wdir"] + 'last.pt'
         self.system_dict["fixed_params"]["best"] = self.system_dict["fixed_params"]["wdir"] + 'best.pt'
-        self.system_dict["fixed_params"]["results_file"] = '/content/drive/My Drive/Datasets/Results/DLA_OHG/results.txt'
+        self.system_dict["fixed_params"]["results_file"] = '/content/drive/My Drive/Datasets/Results/OHG_RES/results.txt'
 
         self.system_dict["fixed_params"]["hyp"] = {'giou': 3.54,  # giou loss gain
                                                    'cls': 37.4,  # cls loss gain
@@ -293,7 +293,7 @@ class Detector():
         self.system_dict["params"]["evolve"] = evolve;
         self.system_dict["params"]["num_generations"] = num_generations;
         self.system_dict["params"]["bucket"] = "";
-        self.system_dict["params"]["weights"] = "";
+        self.system_dict["params"]["weights"] = "dla_yolov3/dla_yolov3.pt";
         self.system_dict["params"]["arc"] = "default";
         self.system_dict["params"]["name"] = "";
         self.system_dict["params"]["device"] = gpu_devices;
@@ -423,11 +423,11 @@ class Detector():
                 self.system_dict["local"]["best_fitness"] = chkpt['best_fitness']
 
             # load results
-            if chkpt.get('training_results') is not None:
-                with open(self.system_dict["fixed_params"]["results_file"], 'w') as file:
-                    file.write(chkpt['training_results'])
+            #if chkpt.get('training_results') is not None:
+            #    with open(self.system_dict["fixed_params"]["results_file"], 'w') as file:
+            #        file.write(chkpt['training_results'])
 
-            self.system_dict["local"]["start_epoch"] = chkpt['epoch'] + 1
+            #self.system_dict["local"]["start_epoch"] = chkpt['epoch'] + 1
             del chkpt
 
         elif len(self.system_dict["params"]["weights"]) > 0:  # darknet format
