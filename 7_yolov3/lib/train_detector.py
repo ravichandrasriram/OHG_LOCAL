@@ -786,7 +786,7 @@ class Detector():
             if len(n):
                 n = '_' + n if not n.isnumeric() else n
                 fresults, flast, fbest = 'results%s.txt' % n, 'last%s.pt' % n, 'best%s.pt' % n
-                os.rename('/content/drive/My Drive/Datasets/Results/DLA_OHG/results.txt', fresults)
+                os.rename('/content/drive/My Drive/Datasets/Results/OHG_RES/results.txt', fresults)
                 os.rename(self.system_dict["fixed_params"]["wdir"] + 'last.pt', 
                     self.system_dict["fixed_params"]["wdir"] + flast) if os.path.exists(self.system_dict["fixed_params"]["wdir"] + 'last.pt') else None
                 os.rename(self.system_dict["fixed_params"]["wdir"] + 'best.pt', 
