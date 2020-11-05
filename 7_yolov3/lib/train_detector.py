@@ -293,7 +293,7 @@ class Detector():
         self.system_dict["params"]["evolve"] = evolve;
         self.system_dict["params"]["num_generations"] = num_generations;
         self.system_dict["params"]["bucket"] = "";
-        self.system_dict["params"]["weights"] = "dla_yolov3/dla_yolov3.pt";
+        self.system_dict["params"]["weights"] = "";
         self.system_dict["params"]["arc"] = "default";
         self.system_dict["params"]["name"] = "";
         self.system_dict["params"]["device"] = gpu_devices;
@@ -423,11 +423,11 @@ class Detector():
                 self.system_dict["local"]["best_fitness"] = chkpt['best_fitness']
 
             # load results
-            #if chkpt.get('training_results') is not None:
-            #    with open(self.system_dict["fixed_params"]["results_file"], 'w') as file:
-            #        file.write(chkpt['training_results'])
+            if chkpt.get('training_results') is not None:
+                with open(self.system_dict["fixed_params"]["results_file"], 'w') as file:
+                    file.write(chkpt['training_results'])
 
-            #self.system_dict["local"]["start_epoch"] = chkpt['epoch'] + 1
+            self.system_dict["local"]["start_epoch"] = chkpt['epoch'] + 1
             del chkpt
 
         elif len(self.system_dict["params"]["weights"]) > 0:  # darknet format
