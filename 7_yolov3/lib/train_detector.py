@@ -708,7 +708,7 @@ class Detector():
                                                 single_cls=self.system_dict["params"]["single_cls"],
                                                 dataloader=self.system_dict["local"]["testloader"])
 
-            print('Last epoch Learning Rate: %g ' % self.system_dict["local"]["scheduler"].get_last_lr())
+            
             # Update scheduler
             self.system_dict["local"]["scheduler"].step()
 
